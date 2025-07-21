@@ -5,9 +5,6 @@ RUN apt-get update && \
     ca-certificates \
     gcc \
     python3-dev \
-    wget \  # Для скачивания файлов
-    curl \  # Альтернатива wget
-    unzip \ # Для распаковки архивов
     && rm -rf /var/lib/apt/lists/*
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
