@@ -7,7 +7,7 @@ RUN apt-get update && \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 COPY . .
 RUN mkdir -p /app/downloaded_files && \
     mkdir -p /var/log/app && \
