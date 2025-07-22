@@ -25,7 +25,7 @@ def run_script():
 
 def main():
     # Планируем запуск каждые 8 часов
-    schedule.every(8).hours.do(run_script)
+    schedule.every(10).hours.do(run_script)
     
     # Первый запуск сразу
     run_script()
