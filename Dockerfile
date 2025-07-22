@@ -20,7 +20,5 @@ RUN mkdir -p /app/downloaded_files && \
 ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 ENV DOWNLOAD_DIR=/app/downloaded_files
-ENV MAX_RETRIES=5
-ENV RETRY_DELAY=10
 EXPOSE 80
 CMD ["python", "main.py"]
