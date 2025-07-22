@@ -37,7 +37,7 @@ def update_wb_prices(API_KEY, gm):
         }
 
         response = requests.post(url, headers=headers, json=payload)
-        sleep(0.61)
+        sleep(0.7)
 
 def get_data_gamma():
     def get_chrt_ids_by_imt_id(api_key, imt_id, all_cards):
@@ -96,7 +96,7 @@ def get_data_gamma():
         cursor = None  
         
         while True:
-            sleep(5)
+            sleep(7)
             
             payload = {
                 "settings": {
@@ -449,7 +449,7 @@ def get_data_gela():
         cursor = None  
 
         while True:
-            sleep(6)
+            sleep(7)
            
             payload = {
                 "settings": {
@@ -634,7 +634,7 @@ def get_data_gamma2():
         cursor = None  
         
         while True:
-            sleep(5)
+            sleep(7)
             
             payload = {
                 "settings": {
