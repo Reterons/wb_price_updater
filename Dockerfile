@@ -1,24 +1,20 @@
 FROM python:3.9-slim
-
-WORKDIR /app
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    ca-certificates \
     gcc \
     python3-dev \
     libssl-dev \
-    && rm -rf /var/lib/apt/lists/*
+    ca-certificates && \
+    rm -rf /var/lib/apt/lists/*
 RUN update-ca-certificates
+WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install --no-cache-dir pyopenssl cryptography idna certifi
 COPY . .
 RUN mkdir -p /app/downloaded_files && \
-    mkdir -p /var/log/app && \
-    chmod 777 /var/log/app && \
     chmod 777 /app/downloaded_files
 ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
-ENV DOWNLOAD_DIR=/app/downloaded_files
-EXPOSE 80
 CMD ["python", "main.py"]
