@@ -17,4 +17,5 @@ RUN mkdir -p /app/downloaded_files && \
     chmod 777 /app/downloaded_files
 ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 ENV SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+EXPOSE 80
 CMD ["python", "main.py"]
