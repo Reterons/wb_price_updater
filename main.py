@@ -24,8 +24,7 @@ def run_script():
         logging.error(f"Ошибка при выполнении скрипта: {str(e)}")
 
 def main():
-    # Планируем запуск каждые 8 часов
-    schedule.every(10).hours.do(run_script)
+    schedule.every(8).hours.do(run_script)
     
     # Первый запуск сразу
     run_script()
@@ -34,7 +33,7 @@ def main():
     
     while True:
         schedule.run_pending()
-        time.sleep(60)
+        time.sleep(14400)
 
 if __name__ == "__main__":
     main()
